@@ -1,5 +1,7 @@
 # pbipgen
 
+[![build](https://github.com/zhaoruizhe81/pbipgen/actions/workflows/build.yml/badge.svg)](https://github.com/zhaoruizhe81/pbipgen/actions/workflows/build.yml)
+
 **Generate a working Power BI report from a JSON spec — no dragging, no clicking, no Windows.**
 
 [PBIP](https://learn.microsoft.com/power-bi/developer/projects/projects-overview) (Power BI Project)
@@ -37,6 +39,8 @@ python3 pbipgen.py examples/sales/spec.json
 ```
 
 Then open `build/sales/SalesDemo.pbip` in Power BI Desktop and click **Refresh**.
+`python3 tools/check.py build/sales/SalesDemo` re-asserts the invariants CI enforces
+(page order present, column types pinned, no `Legend` role).
 The CSV path is resolved relative to the spec file and baked in as an absolute path,
 so the data travels with the project.
 
